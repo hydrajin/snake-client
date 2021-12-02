@@ -1,11 +1,11 @@
 const net = require("net");
-
+const { IP, PORT } = require("./constants");
 
 // establishes a connection with the game server
 const connect = function () {
   const conn = net.createConnection({
-    host:  "165.227.47.243", // IP MUST BE IN QUOTES!!
-    port: 50541, // NO QUOTES JUST NUMBER VALUE
+    host: IP,
+    port: PORT,
   });
 
   // interpret incoming data as text
@@ -20,6 +20,7 @@ const connect = function () {
   conn.on('connect', () => {
     console.log("YOU'RE CONNECTED!!!"); // MESSAGE SHOWING THAT WE ARE CONNECTED!
     conn.write('Name: ZIM'); // MY USERNAME
+
   });
   return conn;
 };
