@@ -24,16 +24,15 @@ const connect = function () {
     console.log("YOU'RE CONNECTED!!!"); // MESSAGE SHOWING THAT WE ARE CONNECTED!
     conn.write('Name: ZIM'); // MY USERNAME
     
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 5; i++) {
     setTimeout(() => {
-      // conn.write(moveUp);
+       conn.write(moveUp);
        }, delay);
        delay += increment;
     // conn.write("Move: up"); // only moves the snake up ONCE
       }
   });
   return conn;
-
 };
 
 module.exports = connect;
