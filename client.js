@@ -1,8 +1,5 @@
 const net = require("net");
 
-const moveUp = "Move: up";
-let delay = 0;
-const increment = 50;
 
 // establishes a connection with the game server
 const connect = function () {
@@ -20,17 +17,10 @@ const connect = function () {
   });
 
   // CONNECT
-  conn.on('connect', (connect) => {
+  conn.on('connect', () => {
     console.log("YOU'RE CONNECTED!!!"); // MESSAGE SHOWING THAT WE ARE CONNECTED!
     conn.write('Name: ZIM'); // MY USERNAME
-    
-    for (let i = 0; i < 5; i++) {
-    setTimeout(() => {
-       conn.write(moveUp);
-       }, delay);
-       delay += increment;
-    // conn.write("Move: up"); // only moves the snake up ONCE
-      }
+ 
   });
   return conn;
 };

@@ -1,4 +1,6 @@
-const setupInput = function () {
+let connection;
+const setupInput = function (conn) {
+  connection = conn;
   const stdin = process.stdin;
   stdin.setRawMode(true);
   stdin.setEncoding("utf8");
@@ -8,19 +10,23 @@ const setupInput = function () {
   return stdin;
 };
 
-// const handleUserInput = function(data) {
-//   if (data === '\u0003') {   // \u0003 maps to ctrl+c input
-//     console.log("YOU'RE DISCONNECTED!!!");
-//     process.exit();
-//   }
-// };
 
 const handleUserInput = (data) => { // We use the on method on stdin to register a callback.
-  // \u0003 maps to ctrl+c input
   if (data === '\u0003') { // USED TO EXIT THE PROGRAM (WITHOUT IT WE ARE STUCK!!)
+    console.log("YOU'RE DISCONNECTED!!!");
     process.exit();
   }
-  console.log("YOU'RE DISCONNECTED!!!");
+  if (data === "w") {
+    connection.write("Move: up");
+    console.log('up');
+  } else if (data === 'a') {
+    connection.write("Move: left");
+  } else if (data === 's') {
+    connection.write("Move: down");
+    console.log('down');
+  } else if (data === 'd') {
+    connection.write("Move: right");
+  }
 };
 
 
