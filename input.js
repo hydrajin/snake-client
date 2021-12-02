@@ -26,8 +26,21 @@ const handleUserInput = (data) => { // We use the on method on stdin to register
     console.log('down');
   } else if (data === 'd') {
     connection.write("Move: right");
+  } else if (data === 'f') {
+    connection.write("Say: Eat my shorts");
+  } else if (data === 'v') {
+    connection.write("Say: Yoink");
+  } else if (data === 'r') {
+    connection.write("Say: D'oh");
+  } else if (data === 'e') {
+    connection.write("Say: I AM SO SMART - SMRT");
+  } else if (data === 'q') {
+    connection.write("Say: Why You Little...");
+  } else if (data === 't') {
+    connection.write("Say: Saxamaphone!");
+  } else if (data === 'j') {
+    connection.write("Say: SAYONARA!!");
   }
 };
-
 
 module.exports = setupInput;

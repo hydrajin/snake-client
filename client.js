@@ -20,7 +20,6 @@ const connect = function () {
   conn.on('connect', () => {
     console.log("YOU'RE CONNECTED!!!"); // MESSAGE SHOWING THAT WE ARE CONNECTED!
     conn.write('Name: ZIM'); // MY USERNAME
- 
   });
   return conn;
 };
